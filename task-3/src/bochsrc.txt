@@ -1,0 +1,87 @@
+#=======================================================================
+# ROMIMAGE:
+# The ROM BIOS controls what the PC does when it first powers on.
+# Use a precompiled BIOS in the source or binary distribution called BIOS-bochs-latest.
+#=======================================================================
+romimage: file=/usr/share/bochs/BIOS-bochs-latest
+
+#=======================================================================
+# CPU:
+# This defines cpu-related parameters inside Bochs.
+#=======================================================================
+cpu: count=1, ips=10000000, reset_on_triple_fault=1
+
+#=======================================================================
+# MEGS:
+# Set the number of Megabytes of physical memory you want to emulate.
+#=======================================================================
+megs: 32
+
+#=======================================================================
+# VGAROMIMAGE:
+# Load a VGA ROM BIOS into C0000.
+#=======================================================================
+vgaromimage: file=/usr/share/bochs/VGABIOS-lgpl-latest
+
+#=======================================================================
+# VGA:
+# Specify the display extension to be used.
+#=======================================================================
+vga: extension=vbe
+
+#=======================================================================
+# FLOPPYA:
+# Point this to the pathname of the floppy image file or device.
+#=======================================================================
+floppya: 1_44="bin/floppy.img", status=inserted
+
+#=======================================================================
+# BOOT:
+# Define the boot sequence.
+#=======================================================================
+boot: a
+
+#=======================================================================
+# FLOPPY_BOOTSIG_CHECK:
+# Enables or disables the 0xaa55 signature check on boot floppies.
+#=======================================================================
+floppy_bootsig_check: disabled=0
+
+#=======================================================================
+# LOG:
+# Specify the path of the log file for Bochs debug and misc. verbiage.
+#=======================================================================
+log: bochsout.txt
+
+#=======================================================================
+# LOG CONTROLS:
+# Define the severity levels for event logging.
+#=======================================================================
+panic: action=ask
+error: action=report
+info: action=report
+debug: action=ignore
+
+#=======================================================================
+# DEBUGGER_LOG:
+# Specify the path of the log file for Bochs debugger output.
+#=======================================================================
+debugger_log: -
+
+#=======================================================================
+# VGA_UPDATE_INTERVAL:
+# Video memory is scanned for updates and screen updated every so many virtual seconds.
+#=======================================================================
+vga: update_freq=10
+
+#=======================================================================
+# MOUSE:
+# Prevent Bochs from creating mouse "events" unless a mouse is enabled.
+#=======================================================================
+mouse: enabled=0
+
+#=======================================================================
+# PCI:
+# Control the presence of the i440FX PCI chipset.
+#=======================================================================
+pci: enabled=1, chipset=i440fx
